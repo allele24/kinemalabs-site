@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img">
+  <title>Kinema Labs mark</title>
+  <rect width="48" height="48" rx="14" fill="#c8ff62"/>
+  <circle cx="16" cy="15" r="4" fill="#08110d"/>
+  <circle cx="32" cy="11" r="3" fill="#08110d"/>
+  <circle cx="31" cy="36" r="4" fill="#08110d"/>
+  <path d="M16 15 24 24l8-13M24 24l7 12M24 24l-9 11" fill="none" stroke="#08110d" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
