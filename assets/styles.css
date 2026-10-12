@@ -1075,3 +1075,196 @@ p:last-child {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Kinema product pages (October 2026) */
+.nav-cta {
+  padding: 0.55rem 1rem;
+  color: var(--night) !important;
+  background: var(--signal);
+  border-radius: 999px;
+}
+
+.nav-cta::after {
+  display: none;
+}
+
+.hero h1 {
+  max-width: 15ch;
+  font-size: clamp(2.8rem, 6vw, 5.4rem);
+}
+
+.hero-phone {
+  display: flex;
+  justify-content: center;
+}
+
+.phone {
+  width: min(100%, 320px);
+  margin: 0;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 46px;
+  background: #1b211d;
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.45);
+}
+
+.phone img {
+  width: 100%;
+  height: auto;
+  border-radius: 36px;
+}
+
+.steps {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  gap: clamp(3rem, 7vw, 6rem);
+  list-style: none;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: minmax(200px, 300px) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: center;
+}
+
+.step:nth-child(even) {
+  grid-template-columns: minmax(0, 1fr) minmax(200px, 300px);
+}
+
+.step:nth-child(even) .phone {
+  order: 2;
+}
+
+.step .phone {
+  width: 100%;
+  background: var(--night);
+  box-shadow: var(--shadow);
+}
+
+.step .process-number {
+  margin-bottom: 1.5rem;
+}
+
+.step h3 {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+}
+
+.step p {
+  max-width: 34rem;
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+}
+
+.footer-bottom a {
+  color: inherit;
+}
+
+@media (max-width: 860px) {
+  .step,
+  .step:nth-child(even) {
+    grid-template-columns: 1fr;
+  }
+
+  .step:nth-child(even) .phone {
+    order: 0;
+  }
+
+  .step .phone {
+    width: min(100%, 260px);
+  }
+}
+
+.hero h1 {
+  max-width: 18ch;
+  font-size: clamp(2.4rem, 4.6vw, 4.2rem);
+}
+
+.scope-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.scope-col {
+  padding: clamp(1.6rem, 4vw, 2.6rem);
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.scope-col h3 {
+  color: var(--signal);
+}
+
+.scope-col ul {
+  display: grid;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  gap: 0.85rem;
+  list-style: none;
+}
+
+.scope-col li {
+  position: relative;
+  padding-left: 1.4rem;
+  color: rgba(255, 254, 248, 0.78);
+}
+
+.scope-col li::before {
+  position: absolute;
+  left: 0;
+  color: var(--signal);
+  content: "\2013";
+}
+
+.details {
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+
+.details div {
+  display: grid;
+  padding: 1.25rem 0;
+  grid-template-columns: 11rem minmax(0, 1fr);
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.details dt {
+  font-weight: 700;
+}
+
+.details dd {
+  max-width: 46rem;
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.cta-note {
+  max-width: 34rem;
+  margin-top: 1rem;
+  color: rgba(255, 254, 248, 0.68);
+}
+
+.cta h2 {
+  max-width: none;
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  overflow-wrap: anywhere;
+}
+
+.page-hero .lede a {
+  color: var(--signal);
+}
+
+@media (max-width: 860px) {
+  .scope-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .details div {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+}
