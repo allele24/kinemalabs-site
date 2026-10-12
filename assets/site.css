@@ -1155,3 +1155,48 @@ p:last-child {
   border: 1px solid var(--line);
   border-radius: 8px;
 }
+
+/* Hero canvas */
+
+.court {
+  margin: 0;
+}
+
+.court canvas {
+  display: block;
+  width: 100%;
+  aspect-ratio: 600 / 480;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--bg);
+}
+
+.court figcaption {
+  display: flex;
+  margin-top: 0.9rem;
+  justify-content: center;
+  gap: 1.5rem;
+  color: var(--quiet);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.live-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.swap {
+  transition: width 400ms var(--ease);
+  vertical-align: bottom;
+}
+
+@media (max-width: 900px) {
+  .live-section {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

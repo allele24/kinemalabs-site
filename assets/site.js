@@ -14,16 +14,20 @@
         const s = document.createElement("span");
         s.className = "ch " + cls;
         s.textContent = c;
-        s.style.animationDelay = k * (cls === "in" ? 28 : 14) + "ms";
+        s.style.animationDelay = k * (cls === "in" ? 45 : 20) + "ms";
         swap.appendChild(s);
       });
     };
+    // Like the reference: the word box eases to the next word's width while its letters flip in.
+    const measure = (word) => { const m = document.createElement("span"); m.className = "swap"; m.style.cssText = "position:absolute;visibility:hidden"; m.textContent = word; swap.parentNode.appendChild(m); const w = m.offsetWidth; m.remove(); return w; };
+    swap.style.width = measure(words[0]) + "px";
     setInterval(async () => {
       paint(words[i], "out");
-      await wait(300 + words[i].length * 14);
       i = (i + 1) % words.length;
+      swap.style.width = measure(words[i]) + "px";
+      await wait(160);
       paint(words[i], "in");
-    }, 2600);
+    }, 2800);
   }
 
   // Sections ease in once as they reach the screen.
