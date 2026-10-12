@@ -71,37 +71,51 @@
     ctx.beginPath(); ctx.moveTo(n1.x, n1.y - 14); ctx.lineTo(n2.x, n2.y - 14); ctx.stroke();
   };
 
-  // A player: shadow, legs, shirt, head, and a racket arm. swing goes 0 (racket back) to 1 (follow-through).
+  // A player in a ready stance. The racket is drawn as a lime swoosh: during a swing, a fading trail follows the
+  // racket head along an arc in front of the body; between swings the racket rests at their side.
   const person = (f, s, swing, alpha, lit) => {
-    const K = 1.5;
+    const K = 1.5, c = { x: f.x, y: f.y - 30 };
+    const arc = (p) => { const th = (-25 + 225 * p) * Math.PI / 180; return { x: c.x + Math.cos(th) * 24, y: c.y + Math.sin(th) * 11 - 16 * p * p }; };
     ctx.save(); ctx.globalAlpha *= alpha;
     ctx.translate(f.x, f.y); ctx.scale(K, K); ctx.translate(-f.x, -f.y);
-    ctx.fillStyle = "rgba(0,0,0,0.45)"; ctx.beginPath(); ctx.ellipse(f.x, f.y, 13, 5, 0, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = "rgba(0,0,0,0.45)"; ctx.beginPath(); ctx.ellipse(f.x, f.y, 14, 5, 0, 0, Math.PI * 2); ctx.fill();
     if (lit > 0) glow(f.x, f.y - 26, 46, 0.25 * lit);
-    const step = Math.sin(swing * Math.PI) * 3;
-    ctx.strokeStyle = "#2a2f29"; ctx.lineWidth = 4.5; ctx.lineCap = "round";
-    ctx.beginPath(); ctx.moveTo(f.x - 2, f.y - 18); ctx.lineTo(f.x - 6 - step, f.y - 1);
-    ctx.moveTo(f.x + 2, f.y - 18); ctx.lineTo(f.x + 6 + step, f.y - 1); ctx.stroke();
+    const twist = swing > 0 ? Math.sin(swing * Math.PI) * 4 : 0;
+    // Legs: wide, knees bent.
+    ctx.strokeStyle = "#2c312b"; ctx.lineWidth = 4; ctx.lineCap = "round"; ctx.lineJoin = "round";
+    ctx.beginPath();
+    ctx.moveTo(f.x - 3, f.y - 19); ctx.quadraticCurveTo(f.x - 9, f.y - 10, f.x - 8, f.y - 1);
+    ctx.moveTo(f.x + 3, f.y - 19); ctx.quadraticCurveTo(f.x + 9, f.y - 10, f.x + 8, f.y - 1);
+    ctx.stroke();
+    // Torso: shoulders wider than hips, turning with the swing.
     ctx.fillStyle = lit > 0.5 ? LIME : s.shirt;
-    ctx.beginPath(); ctx.roundRect(f.x - 7, f.y - 37, 14, 20, 5); ctx.fill();
-    ctx.fillStyle = "#d8c3a5"; ctx.beginPath(); ctx.arc(f.x, f.y - 43, 5.5, 0, Math.PI * 2); ctx.fill();
-    // Arm and racket swing around the shoulder, from behind the body to across it.
-    const sh = { x: f.x + 4, y: f.y - 33 };
-    const ang = (-150 + 230 * inOut(swing)) * Math.PI / 180;
-    const hand = { x: sh.x + Math.cos(ang) * 11, y: sh.y + Math.sin(ang) * 6 + 6 };
-    ctx.strokeStyle = "#d8c3a5"; ctx.lineWidth = 3.2;
-    ctx.beginPath(); ctx.moveTo(sh.x, sh.y); ctx.lineTo(hand.x, hand.y); ctx.stroke();
-    const head = { x: hand.x + Math.cos(ang) * 14, y: hand.y + Math.sin(ang) * 8 - 2 };
-    ctx.strokeStyle = "#b8bdb4"; ctx.lineWidth = 2;
-    ctx.beginPath(); ctx.moveTo(hand.x, hand.y); ctx.lineTo(head.x, head.y); ctx.stroke();
-    ctx.beginPath(); ctx.ellipse(head.x + Math.cos(ang) * 5, head.y + Math.sin(ang) * 3, 6, 4, ang, 0, Math.PI * 2);
-    ctx.strokeStyle = lit > 0.5 ? LIME : "#c9cec5"; ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(f.x - 5, f.y - 18); ctx.lineTo(f.x + 5, f.y - 18);
+    ctx.lineTo(f.x + 9 - twist, f.y - 36 + twist * 0.4); ctx.lineTo(f.x - 9 - twist, f.y - 37 - twist * 0.4);
+    ctx.closePath(); ctx.fill();
+    ctx.fillStyle = "#d8c3a5"; ctx.beginPath(); ctx.arc(f.x - twist * 0.5, f.y - 43, 5.5, 0, Math.PI * 2); ctx.fill();
+    if (swing > 0 && swing < 1) {
+      for (let k = 14; k >= 0; k--) {
+        const p0 = Math.max(0, swing - (k + 1) * 0.03), p1 = Math.max(0, swing - k * 0.03);
+        const a = arc(p0), b = arc(p1);
+        ctx.strokeStyle = lime(0.85 * (1 - k / 15)); ctx.lineWidth = 3.5 * (1 - k / 18);
+        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+      }
+      const h = arc(swing);
+      ctx.fillStyle = "#eef1ea"; ctx.beginPath(); ctx.ellipse(h.x, h.y, 4.5, 3, 0, 0, Math.PI * 2); ctx.fill();
+    } else {
+      ctx.strokeStyle = "#b8bdb4"; ctx.lineWidth = 1.8;
+      ctx.beginPath(); ctx.moveTo(f.x + 9, f.y - 24); ctx.lineTo(f.x + 12, f.y - 13); ctx.stroke();
+      ctx.beginPath(); ctx.ellipse(f.x + 13.5, f.y - 8, 3, 5, -0.2, 0, Math.PI * 2);
+      ctx.strokeStyle = lit > 0.5 ? LIME : "#c9cec5"; ctx.stroke();
+    }
     if (s.name) {
       ctx.font = `500 10px ${MONO}`; ctx.fillStyle = lit > 0.5 ? LIME : "rgba(236,240,232,0.7)";
       ctx.fillText(s.name, f.x - ctx.measureText(s.name).width / 2, f.y - 56);
     }
     ctx.restore();
-    return { x: f.x + (head.x - f.x) * K, y: f.y + (head.y - f.y) * K };
+    const hit = arc(0.45);
+    return { x: f.x + (hit.x - f.x) * K, y: f.y + (hit.y - f.y) * K };
   };
 
   const bezier = (from, to, lift, f) => {
