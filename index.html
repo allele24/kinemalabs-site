@@ -8,7 +8,9 @@
   <meta name="theme-color" content="#08110d">
   <link rel="canonical" href="https://kinemalabs.tech/">
   <link rel="icon" href="assets/kinema-mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/site.css">
+  <script>document.documentElement.classList.add("js")</script>
   <meta property="og:title" content="Kinema: practice video review for tennis coaches">
   <meta property="og:description" content="An iPhone app for tennis coaches: students record practice and you send notes by voice. Invite-only beta.">
   <meta property="og:type" content="website">
@@ -30,89 +32,119 @@
   <main id="main">
 
     <section class="hero">
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">iPhone beta for tennis coaches</p>
-          <h1>Review your students' practice videos and send notes by voice.</h1>
-          <p class="lede">Students record practice with their phone propped behind them. Watch it at full or quarter speed. You say your comments out loud, and Kinema drafts written notes attached to the swings you mention. You edit them, then send.</p>
+      <div class="shell hero-grid">
+        <div>
+          <p class="eyebrow">iPhone beta &middot; for tennis coaches</p>
+          <h1>Review your students' <span class="swap" data-swap="forehands|backhands|serves|footwork">forehands</span> by voice.</h1>
+          <p class="lede">Students record practice on their phone. You watch the clip and say what you see. Kinema writes it up as clear notes you can edit, then you send them.</p>
           <div class="button-row">
-            <a class="button button-primary" href="mailto:contact@kinemalabs.tech?subject=Kinema%20beta%20for%20my%20students">Email us to join the beta</a>
-            <a class="button button-secondary" href="#demo">Watch the demo</a>
+            <a class="button button-primary" href="mailto:contact@kinemalabs.tech?subject=Kinema%20beta%20for%20my%20students">Join the beta <span class="arrow" aria-hidden="true">&#8599;</span></a>
+            <a class="button button-secondary" href="#demo">Watch the demo <span class="arrow arrow-down" aria-hidden="true">&#8595;</span></a>
           </div>
+          <p class="hero-note">Free during the beta &middot; iPhone, iOS 18+</p>
         </div>
-        <div class="hero-phone"><figure class="phone"><img src="assets/screens/coach-swings.webp" alt="A student's practice clip in Kinema" width="590" height="1280" loading="lazy"></figure></div>
+
+        <div class="live" data-live data-stage="done" aria-label="Example: a coach's spoken comment turned into two notes">
+          <div class="live-bar"><span>Alex &middot; Forehands &middot; today</span><span class="live-rec">Rec <span data-clock>0:04</span></span></div>
+          <div class="live-body">
+            <img class="live-thumb" src="assets/clip.webp" alt="" width="800" height="450">
+            <div class="live-voice">
+              <span class="live-mic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
+              <div class="live-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+            <div class="live-said" data-said data-text="finish higher, and more hip turn on 3 and 5">finish higher, and more hip turn on 3 and 5</div>
+            <div class="live-status" data-status>Kinema drafted 2 notes</div>
+            <div class="live-notes">
+              <div class="note show">
+                <div class="note-head">Whole clip</div>
+                <p>Finish higher. Let your hand finish over your opposite shoulder.</p>
+              </div>
+              <div class="note show">
+                <div class="note-head"><span class="tag">Change</span> Hip turn <span class="swings">Swings 3 and 5</span></div>
+                <p>Turn your hips more before you swing. Turn your hips and shoulders together.</p>
+              </div>
+            </div>
+            <div class="live-send show sent">Sent to Alex &#10003;</div>
+          </div>
+          <div class="live-foot"><span>Example with sample data</span><button type="button" data-replay>Replay &#8635;</button></div>
+        </div>
       </div>
     </section>
 
-    <section class="demo" id="demo">
+    <section class="section demo" id="demo">
       <div class="shell">
-        <p class="eyebrow">Demo</p>
-        <h2>See the coach and student side in 90 seconds</h2>
-        <div class="demo-frame">
-          <iframe src="https://www.youtube-nocookie.com/embed/PCTWm3lUJ4U?rel=0" title="Kinema demo" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+        <div class="section-intro" data-reveal>
+          <div>
+            <p class="eyebrow">Demo</p>
+            <h2>The coach and student side in 90 seconds.</h2>
+          </div>
+          <p>Recorded from the real app. The practice footage is free stock video.</p>
         </div>
-        <p class="demo-note">Example practice footage is free stock video, run through the real app.</p>
+        <div class="demo-frame" data-reveal>
+          <iframe src="https://www.youtube-nocookie.com/embed/PCTWm3lUJ4U?rel=0" title="Kinema demo" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
       </div>
     </section>
 
     <section class="section" id="how">
       <div class="shell">
-        <div class="section-intro">
+        <div class="section-intro" data-reveal>
           <div>
             <p class="eyebrow">How it works</p>
-            <h2>From a student's practice to your notes</h2>
+            <h2>From their practice to your notes.</h2>
           </div>
           <p>Practice videos, your notes and students' questions stay together in one app instead of a text or email thread.</p>
         </div>
         <ol class="steps">
-          <li class="step">
-            <figure class="phone"><img src="assets/screens/coach-inbox.webp" alt="The coach's Inbox with a student's new practice clip" width="590" height="1280" loading="lazy"></figure>
-            <div><span class="process-number">01</span><h3>The student records a set</h3><p>They prop their iPhone behind and above them with their whole body in the frame, and hit. When they finish, the clip uploads and appears in your Inbox.</p></div>
+          <li class="step" data-reveal style="--d:0ms">
+            <span class="step-num">01</span>
+            <div><h3>The student records a set</h3><p>Phone propped behind them, whole body in frame. The clip lands in your Inbox.</p></div>
+            <figure class="phone"><img src="assets/screens/coach-inbox.webp" alt="The coach's Inbox with a new practice clip" width="590" height="1280" loading="lazy"></figure>
           </li>
-          <li class="step">
+          <li class="step" data-reveal style="--d:90ms">
+            <span class="step-num">02</span>
+            <div><h3>You watch the clip</h3><p>Full or quarter speed, frame by frame, and loop any part.</p></div>
             <figure class="phone"><img src="assets/screens/coach-swings.webp" alt="A practice clip with playback controls" width="590" height="1280" loading="lazy"></figure>
-            <div><span class="process-number">02</span><h3>You watch the clip</h3><p>Play it at full or quarter speed, step frame by frame, and loop any part you want to look at again.</p></div>
           </li>
-          <li class="step">
+          <li class="step" data-reveal style="--d:180ms">
+            <span class="step-num">03</span>
+            <div><h3>You talk, Kinema writes</h3><p>Say the short version. Edit the notes by typing, or say what to change.</p></div>
             <figure class="phone"><img src="assets/screens/coach-drafts.webp" alt="Notes Kinema drafted from what the coach said" width="590" height="1280" loading="lazy"></figure>
-            <div><span class="process-number">03</span><h3>You talk, and Kinema drafts the notes</h3><p>Tap the mic and say what you saw, for example &ldquo;finish higher, more hip turn on 3 and 5.&rdquo; Kinema writes it up as separate notes, each tagged with the swings and the technique point you named. Edit the text with the keyboard, or say a change, like &ldquo;make the first note shorter.&rdquo;</p></div>
           </li>
-          <li class="step">
+          <li class="step" data-reveal style="--d:270ms">
+            <span class="step-num">04</span>
+            <div><h3>You send</h3><p>Nothing reaches the student until you tap Send. They see each note on the clip, with your voice.</p></div>
             <figure class="phone"><img src="assets/screens/student-today.webp" alt="The student's phone showing the coach's newest note" width="590" height="1280" loading="lazy"></figure>
-            <div><span class="process-number">04</span><h3>You send, and the student sees it on the clip</h3><p>Nothing reaches the student until you tap Send. On their phone, each note opens on the clip and the swings it refers to, with your voice recording attached if you spoke it.</p></div>
           </li>
         </ol>
       </div>
     </section>
 
     <section class="section">
-      <div class="shell">
-        <div class="section-intro">
-          <div>
-            <p class="eyebrow">Details</p>
-            <h2>Requirements</h2>
-          </div>
+      <div class="shell faq">
+        <div data-reveal>
+          <p class="eyebrow">Details</p>
+          <h2>Before you try it.</h2>
         </div>
-        <dl class="details">
-          <div><dt>Status</dt><dd>Invite-only beta through Apple TestFlight</dd></div>
-          <div><dt>Cost</dt><dd>Free during the beta</dd></div>
-          <div><dt>Devices</dt><dd>iPhone with iOS 18 or later, for coaches and students</dd></div>
-          <div><dt>Sport</dt><dd>Tennis</dd></div>
-          <div><dt>Setup</dt><dd>You create a group and share its invite code. Students join with the code and agree to the terms once.</dd></div>
-          <div><dt>Recording</dt><dd>Phone behind and above the player, whole body in frame. Clips up to 60 seconds.</dd></div>
-          <div><dt>Data</dt><dd>Clips and voice notes are stored in Kinema's cloud for your group. Details are in the <a href="app.html">app terms &amp; privacy</a>.</dd></div>
-        </dl>
+        <div class="faq-list" data-reveal>
+          <details><summary>What does it cost?</summary><p>Nothing during the beta. It's an invite-only beta through Apple TestFlight.</p></details>
+          <details><summary>What do my students need?</summary><p>An iPhone with iOS 18 or later and your group's invite code. They agree to the terms once when they join.</p></details>
+          <details><summary>How should students record?</summary><p>Phone propped behind and above them, with their whole body in the frame. Clips can be up to 60 seconds.</p></details>
+          <details><summary>Do I have to talk?</summary><p>No. You can type notes, record a voice note that goes to the student as is, or talk and let Kinema write it up.</p></details>
+          <details><summary>Which sports?</summary><p>Tennis.</p></details>
+          <details><summary>Where are clips stored?</summary><p>In Kinema's cloud, for your group only. Details are in the <a href="app.html">app terms &amp; privacy</a>.</p></details>
+        </div>
       </div>
     </section>
 
     <section class="cta">
-      <div class="shell cta-inner">
+      <div class="shell cta-inner" data-reveal>
         <div>
           <p class="eyebrow">Join the beta</p>
-          <h2>Email contact@kinemalabs.tech</h2>
-          <p class="cta-note">Include your name, where you coach and how many students you'd add. We reply with a TestFlight invite and setup steps.</p>
+          <h2>Try it with your students.</h2>
+          <p class="cta-note">Email contact@kinemalabs.tech with your name, where you coach and how many students you'd add. We reply with a TestFlight invite and setup steps.</p>
         </div>
-        <a class="button button-primary" href="mailto:contact@kinemalabs.tech?subject=Kinema%20beta%20for%20my%20students">Email us</a>
+        <a class="button button-primary" href="mailto:contact@kinemalabs.tech?subject=Kinema%20beta%20for%20my%20students">Email us <span class="arrow" aria-hidden="true">&#8599;</span></a>
       </div>
     </section>
 
@@ -135,5 +167,6 @@
       </div>
     </div>
   </footer>
+  <script src="assets/site.js" defer></script>
 </body>
 </html>
