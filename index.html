@@ -36,7 +36,7 @@
         <div>
           <p class="eyebrow">iPhone app &middot; for tennis coaches</p>
           <h1>Review your students' <span class="swap" data-swap="forehands|backhands|serves|footwork">forehands</span> by voice.</h1>
-          <p class="lede">Students record practice on their phone. You watch the clip and say what you see. Kinema turns that into written notes. Fix anything by typing or by voice, then send.</p>
+          <p class="lede">Students record practice on their phone. You watch the clip and say what you see. Kinema writes it up as one message. Say what to change, or type to fix a word, then send.</p>
           <div class="button-row">
             <a class="button button-primary" href="contact.html">Contact sales <span class="arrow" aria-hidden="true">&#8599;</span></a>
             <a class="button button-secondary" href="#demo">Watch the demo <span class="arrow arrow-down" aria-hidden="true">&#8595;</span></a>
@@ -56,9 +56,9 @@
         <div data-reveal>
           <p class="eyebrow">The coach's side</p>
           <h2>Say it once. Kinema writes it up.</h2>
-          <p class="lede">Talk the way you would on court. Kinema splits what you said into separate notes and tags the swings you named. Change any of it by typing or by saying what to change. Nothing goes out until you tap Send.</p>
+          <p class="lede">Talk the way you would on court. Kinema writes it up as one message in your words, and the swings you name become play buttons for your student. To change it, say what to change. To fix a word, type. Nothing goes out until you tap Send.</p>
         </div>
-        <div class="live" data-reveal data-live data-stage="done" aria-label="Example: a coach's spoken comment turned into two notes">
+        <div class="live" data-reveal data-live data-stage="done" aria-label="Example: a coach's spoken comment written up as one message, then shortened by voice">
           <div class="live-bar"><span>Alex &middot; Forehands &middot; today</span><span class="live-rec">Rec <span data-clock>0:04</span></span></div>
           <div class="live-body">
             <img class="live-thumb" src="assets/clip.webp" alt="" width="800" height="450">
@@ -66,17 +66,12 @@
               <span class="live-mic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
               <div class="live-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
             </div>
-            <div class="live-said" data-said data-text="finish higher, and more hip turn on 3 and 5">finish higher, and more hip turn on 3 and 5</div>
-            <div class="live-status" data-status>Kinema drafted 2 notes</div>
-            <div class="live-notes">
-              <div class="note show">
-                <div class="note-head">Whole clip</div>
-                <p>Finish higher. Let your hand finish over your opposite shoulder.</p>
-              </div>
-              <div class="note show">
-                <div class="note-head"><span class="tag">Change</span> Hip turn <span class="swings">Swings 3 and 5</span></div>
-                <p>Turn your hips more before you swing. Turn your hips and shoulders together.</p>
-              </div>
+            <div class="live-said" data-said data-text="finish higher, and more hip turn on 3 and 5" data-change="make it shorter">make it shorter</div>
+            <div class="live-status" data-status>Kinema changed the message</div>
+            <div class="note show" data-message data-first="Finish higher, with your hand ending over your opposite shoulder. On swings 3 and 5, turn your hips more before you swing, so your hips and shoulders turn together." data-short="Finish higher, over your opposite shoulder. On swings 3 and 5, turn your hips and shoulders together before you swing.">
+              <div class="note-head">Message to Alex <span class="swings">Hip turn</span></div>
+              <p data-words>Finish higher, over your opposite shoulder. On swings 3 and 5, turn your hips and shoulders together before you swing.</p>
+              <div class="note-swings"><span>&#9654; Swing 3</span><span>&#9654; Swing 5</span></div>
             </div>
             <div class="live-send show sent">Sent to Alex &#10003;</div>
           </div>
@@ -124,12 +119,12 @@
           </li>
           <li class="step" data-reveal style="--d:180ms">
             <span class="step-num">03</span>
-            <div><h3>You talk, Kinema writes</h3><p>Say the short version. Kinema writes the notes. Change any of them by typing or out loud.</p></div>
-            <figure class="phone"><img src="assets/screens/coach-drafts.webp" alt="Notes Kinema drafted from what the coach said" width="590" height="1280" loading="lazy"></figure>
+            <div><h3>You talk, Kinema writes</h3><p>Say the short version and Kinema writes one message. Say what to change, or type to fix a word.</p></div>
+            <figure class="phone"><img src="assets/screens/coach-drafts.webp" alt="The message Kinema wrote from what the coach said" width="590" height="1280" loading="lazy"></figure>
           </li>
           <li class="step" data-reveal style="--d:270ms">
             <span class="step-num">04</span>
-            <div><h3>You send</h3><p>Nothing reaches the student until you tap Send. Each note opens on the clip it's about, and they can play your recording.</p></div>
+            <div><h3>You send</h3><p>Nothing reaches the student until you tap Send. Your message opens on the clip it's about. They can tap the swings you named and play your recording.</p></div>
             <figure class="phone"><img src="assets/screens/student-today.webp" alt="The student's phone showing the coach's newest note" width="590" height="1280" loading="lazy"></figure>
           </li>
         </ol>
@@ -146,7 +141,7 @@
           <details><summary>What does it cost?</summary><p>Pricing depends on how many students you coach. <a href="contact.html">Contact sales</a> for a quote.</p></details>
           <details><summary>What do my students need?</summary><p>An iPhone with iOS 18 or later and your group's invite code. They agree to the terms once when they join.</p></details>
           <details><summary>How should students record?</summary><p>Phone on a tripod behind them, turned sideways, with their whole body in the frame.</p></details>
-          <details><summary>Can I type instead of talking?</summary><p>Yes. Every note is plain text you can type or edit. Talking is just faster: say the short version and Kinema writes it up for you to check.</p></details>
+          <details><summary>Can I type instead of talking?</summary><p>Yes. The message is plain text you can type or edit. Talking is faster: say the short version and Kinema writes it up for you to check.</p></details>
           <details><summary>Which sports?</summary><p>Tennis.</p></details>
           <details><summary>Where are clips stored?</summary><p>In Kinema's cloud, for your group only. Details are in the <a href="app.html">app terms &amp; privacy</a>.</p></details>
         </div>

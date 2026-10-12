@@ -552,6 +552,29 @@ p:last-child {
   line-height: 1.5;
 }
 
+.note-swings {
+  display: flex;
+  margin-top: 0.6rem;
+  gap: 0.4rem;
+}
+
+.note-swings span {
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+}
+
+.note p.rewrite {
+  animation: rewrite 600ms var(--ease);
+}
+
+@keyframes rewrite {
+  from { opacity: 0.15; filter: blur(3px); }
+}
+
 .live-send {
   display: flex;
   min-height: 2.6rem;

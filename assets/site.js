@@ -43,16 +43,16 @@
   const vid = document.querySelector("video[data-autoplay]");
   if (vid && !still) new IntersectionObserver(([e]) => { if (e.isIntersecting) vid.play().catch(() => {}); else vid.pause(); }, { threshold: 0.5 }).observe(vid);
 
-  // The live demo: the coach talks, Kinema drafts two notes, the coach sends.
+  // The live demo: the coach talks, Kinema writes one message, the coach says "make it shorter", then sends.
   const live = document.querySelector("[data-live]");
   if (!live) return;
   const said = live.querySelector("[data-said]");
   const status = live.querySelector("[data-status]");
-  const notes = [...live.querySelectorAll(".note")];
+  const message = live.querySelector("[data-message]");
+  const words = message.querySelector("[data-words]");
   const send = live.querySelector(".live-send");
   const bars = [...live.querySelectorAll(".live-wave i")];
   const clock = live.querySelector("[data-clock]");
-  const line = said.dataset.text;
   let run = 0, waveTimer = null;
 
   const wave = (on) => {
@@ -63,9 +63,10 @@
 
   const finished = () => {
     live.dataset.stage = "done";
-    said.innerHTML = line;
-    status.textContent = "Kinema drafted 2 notes";
-    notes.forEach((n) => n.classList.add("show"));
+    said.innerHTML = said.dataset.change;
+    status.textContent = "Kinema changed the message";
+    words.textContent = message.dataset.short;
+    message.classList.add("show");
     send.classList.add("show", "sent");
     send.textContent = "Sent to Alex ✓";
   };
@@ -73,29 +74,46 @@
   const play = async () => {
     const me = ++run;
     const alive = () => me === run;
-    live.dataset.stage = "talk";
+    // The coach talks; the words appear as they're said.
+    const talk = async (line) => {
+      live.dataset.stage = "talk";
+      wave(true);
+      const t0 = Date.now();
+      const tick = setInterval(() => { clock.textContent = "0:0" + Math.min(9, Math.floor((Date.now() - t0) / 1000)); }, 200);
+      for (let k = 1; k <= line.length && alive(); k++) {
+        said.innerHTML = line.slice(0, k) + '<span class="cursor"></span>';
+        await wait(line[k - 1] === "," ? 260 : 42);
+      }
+      clearInterval(tick);
+      wave(false);
+      said.innerHTML = line;
+      live.dataset.stage = "draft";
+    };
     said.innerHTML = '<span class="cursor"></span>';
     status.textContent = "";
-    notes.forEach((n) => n.classList.remove("show"));
+    message.classList.remove("show");
     send.classList.remove("show", "sent");
-    send.textContent = "Send all 2 notes";
-    wave(true);
-    const t0 = Date.now();
-    const tick = setInterval(() => { clock.textContent = "0:0" + Math.min(9, Math.floor((Date.now() - t0) / 1000)); }, 200);
-    for (let k = 1; k <= line.length && alive(); k++) {
-      said.innerHTML = line.slice(0, k) + '<span class="cursor"></span>';
-      await wait(line[k - 1] === "," ? 260 : 42);
-    }
-    clearInterval(tick);
-    wave(false);
+    send.textContent = "Send";
+    await talk(said.dataset.text);
     if (!alive()) return;
-    live.dataset.stage = "draft";
-    said.innerHTML = line;
-    status.innerHTML = '<span class="spin"></span> Kinema is drafting';
+    status.innerHTML = '<span class="spin"></span> Kinema is writing it up';
     await wait(1400);
-    for (const n of notes) { if (!alive()) return; n.classList.add("show"); await wait(380); }
-    status.textContent = "Kinema drafted 2 notes · edit by typing or by voice";
-    await wait(900);
+    if (!alive()) return;
+    words.textContent = message.dataset.first;
+    message.classList.add("show");
+    status.textContent = "One message, in your words";
+    await wait(2600);
+    if (!alive()) return;
+    // Changes go by voice.
+    await talk(said.dataset.change);
+    if (!alive()) return;
+    status.innerHTML = '<span class="spin"></span> Kinema is changing it';
+    await wait(1200);
+    if (!alive()) return;
+    words.classList.remove("rewrite"); void words.offsetWidth; words.classList.add("rewrite");
+    words.textContent = message.dataset.short;
+    status.textContent = "Kinema changed the message";
+    await wait(1200);
     if (!alive()) return;
     send.classList.add("show");
     await wait(1800);
