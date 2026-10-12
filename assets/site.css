@@ -637,6 +637,7 @@ p:last-child {
   background: #000;
 }
 
+.demo-frame video,
 .demo-frame iframe {
   position: absolute;
   inset: 0;

@@ -39,6 +39,10 @@
   }, { rootMargin: "0px 0px -8% 0px" });
   document.querySelectorAll("[data-reveal]").forEach((el) => seen.observe(el));
 
+  // The demo video plays muted while it's on screen, and pauses when it's not.
+  const vid = document.querySelector("video[data-autoplay]");
+  if (vid && !still) new IntersectionObserver(([e]) => { if (e.isIntersecting) vid.play().catch(() => {}); else vid.pause(); }, { threshold: 0.5 }).observe(vid);
+
   // The live demo: the coach talks, Kinema drafts two notes, the coach sends.
   const live = document.querySelector("[data-live]");
   if (!live) return;
