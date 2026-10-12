@@ -75,7 +75,7 @@
   // racket head along an arc in front of the body; between swings the racket rests at their side.
   const person = (f, s, swing, alpha, lit) => {
     const K = 1.5, c = { x: f.x, y: f.y - 30 };
-    const arc = (p) => { const th = (-25 + 225 * p) * Math.PI / 180; return { x: c.x + Math.cos(th) * 24, y: c.y + Math.sin(th) * 11 - 16 * p * p }; };
+    const arc = (p) => { const th = (-25 + 225 * p) * Math.PI / 180; return { x: c.x - Math.cos(th) * 24, y: c.y + Math.sin(th) * 11 - 16 * p * p }; };
     ctx.save(); ctx.globalAlpha *= alpha;
     ctx.translate(f.x, f.y); ctx.scale(K, K); ctx.translate(-f.x, -f.y);
     ctx.fillStyle = "rgba(0,0,0,0.45)"; ctx.beginPath(); ctx.ellipse(f.x, f.y, 14, 5, 0, 0, Math.PI * 2); ctx.fill();
