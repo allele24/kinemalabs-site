@@ -1268,3 +1268,35 @@ p:last-child {
     gap: 0.25rem;
   }
 }
+
+.demo {
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  color: var(--white);
+  background: var(--night-soft);
+}
+
+.demo .eyebrow {
+  color: var(--signal);
+}
+
+.demo h2 {
+  max-width: 22ch;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+}
+
+.demo-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-top: 2rem;
+  border: 1px solid var(--line-dark);
+  border-radius: var(--radius-md);
+  background: #000;
+}
+
+.demo-note {
+  margin-top: 1rem;
+  color: rgba(255, 254, 248, 0.5);
+  font-size: 0.85rem;
+}
