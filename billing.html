@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kinema billing</title>
+  <meta name="description" content="Return page after starting or managing a Kinema plan.">
+  <meta name="theme-color" content="#08110d">
+  <link rel="canonical" href="https://kinemalabs.tech/billing.html">
+  <link rel="icon" href="assets/kinema-mark.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/site.css">
+  <script>document.documentElement.classList.add("js")</script>
+  <meta property="og:title" content="Kinema billing">
+  <meta property="og:description" content="Return page after starting or managing a Kinema plan.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kinemalabs.tech/billing.html">
+  <meta property="og:image" content="https://kinemalabs.tech/assets/og.png">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="nav-shell">
+      <a class="brand" href="./" aria-label="Kinema home">
+        <img src="assets/kinema-mark.svg" alt="" width="32" height="32">
+        <span>Kinema</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation"><a href="./">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="page-hero">
+      <div class="page-hero-inner" data-billing>
+        <p class="eyebrow">Billing</p>
+        <h1 data-title>You're all set.</h1>
+        <p class="lede" data-text>Your 14-day free trial has started. Go back to the Kinema app: your plan shows under Settings, Plan.</p>
+      </div>
+    </section>
+    <script>
+      (() => {
+        const status = new URLSearchParams(location.search).get("status");
+        const copy = {
+          cancelled: ["No charge was made.", "You can start your free trial any time from Settings, Plan in the Kinema app."],
+          managed: ["Billing updated.", "Go back to the Kinema app. Changes to your plan show under Settings, Plan."],
+        }[status];
+        if (copy) { document.querySelector("[data-title]").textContent = copy[0]; document.querySelector("[data-text]").textContent = copy[1]; }
+      })();
+    </script>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <a class="brand" href="./"><img src="assets/kinema-mark.svg" alt="" width="32" height="32"><span>Kinema</span></a>
+          <p class="footer-tagline">An iPhone app for reviewing students' practice videos. Made by Kinema Labs LLC.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="./">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="app.html">App terms &amp; privacy</a><a href="privacy.html">Website privacy</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Kinema Labs LLC. All rights reserved.</span>
+        <span>Sales &middot; Alex Lee, Head of Sales &middot; <a href="mailto:alexlee@kinemalabs.tech">alexlee@kinemalabs.tech</a></span>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/site.js" defer></script>
+  <script src="assets/court.js" defer></script>
+</body>
+</html>
