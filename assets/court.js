@@ -101,8 +101,17 @@
         ctx.strokeStyle = lime(0.85 * (1 - k / 15)); ctx.lineWidth = 3.5 * (1 - k / 18);
         ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
       }
-      const h = arc(swing);
-      ctx.fillStyle = "#eef1ea"; ctx.beginPath(); ctx.ellipse(h.x, h.y, 4.5, 3, 0, 0, Math.PI * 2); ctx.fill();
+      // The racket itself rides at the front of the trail: arm from the shoulder, then handle and head.
+      const h = arc(swing), sh = { x: f.x - twist * 0.5, y: f.y - 34 };
+      const dx = h.x - sh.x, dy = h.y - sh.y, len = Math.hypot(dx, dy) || 1, ux = dx / len, uy = dy / len;
+      const hand = { x: sh.x + ux * len * 0.45, y: sh.y + uy * len * 0.45 };
+      const neck = { x: h.x - ux * 4, y: h.y - uy * 4 };
+      ctx.strokeStyle = "#d8c3a5"; ctx.lineWidth = 2.6;
+      ctx.beginPath(); ctx.moveTo(sh.x, sh.y); ctx.lineTo(hand.x, hand.y); ctx.stroke();
+      ctx.strokeStyle = "#b8bdb4"; ctx.lineWidth = 1.8;
+      ctx.beginPath(); ctx.moveTo(hand.x, hand.y); ctx.lineTo(neck.x, neck.y); ctx.stroke();
+      ctx.strokeStyle = "#eef1ea"; ctx.lineWidth = 1.8;
+      ctx.beginPath(); ctx.ellipse(h.x, h.y, 4.5, 3, Math.atan2(uy, ux), 0, Math.PI * 2); ctx.stroke();
     } else {
       ctx.strokeStyle = "#b8bdb4"; ctx.lineWidth = 1.8;
       ctx.beginPath(); ctx.moveTo(f.x + 9, f.y - 24); ctx.lineTo(f.x + 12, f.y - 13); ctx.stroke();
