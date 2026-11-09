@@ -1,5 +1,11 @@
-// Kinema site motion: the rotating word in the headline, the live voice-to-notes demo, and sections easing in.
+// Kinema site: where the app lives, the rotating word in the headline, the worked voice-to-note example, and
+// sections easing in.
 (() => {
+  // The app's address, in this ONE place. A link marked data-app="/demo/" or data-app="/login" gets this in front of
+  // it. When the app moves to its own address, change this line to "https://app.kinemalabs.tech" and nothing else.
+  const APP = "https://kinema-analysis-api.onrender.com";
+  document.querySelectorAll("a[data-app]").forEach((a) => { a.href = APP + a.dataset.app; });
+
   const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -43,7 +49,7 @@
   const vid = document.querySelector("video[data-autoplay]");
   if (vid && !still) new IntersectionObserver(([e]) => { if (e.isIntersecting) vid.play().catch(() => {}); else vid.pause(); }, { threshold: 0.5 }).observe(vid);
 
-  // The live demo: the coach talks, Kinema writes one message, the coach says "make it shorter", then sends.
+  // The worked example: the coach talks, Kinema writes one message, the coach says "make it shorter", then sends.
   const live = document.querySelector("[data-live]");
   if (!live) return;
   const said = live.querySelector("[data-said]");
@@ -68,7 +74,7 @@
     words.textContent = message.dataset.short;
     message.classList.add("show");
     send.classList.add("show", "sent");
-    send.textContent = "Sent to Alex ✓";
+    send.textContent = "Sent to Alex";
   };
 
   const play = async () => {
@@ -119,7 +125,7 @@
     await wait(1800);
     if (!alive()) return;
     send.classList.add("sent");
-    send.textContent = "Sent to Alex ✓";
+    send.textContent = "Sent to Alex";
     live.dataset.stage = "done";
   };
 
