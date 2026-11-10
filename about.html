@@ -4,28 +4,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About Kinema</title>
-  <meta name="description" content="Kinema Labs LLC makes Kinema, an iPhone app that takes the admin out of coaching practice between lessons.">
-  <meta name="theme-color" content="#08110d">
+  <meta name="description" content="Kinema Labs LLC makes Kinema, which tennis coaches use to review students' practice between lessons and send them notes.">
+  <meta name="theme-color" content="#0a0c0b">
   <link rel="canonical" href="https://kinemalabs.tech/about.html">
   <link rel="icon" href="assets/kinema-mark.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/site.css">
   <script>document.documentElement.classList.add("js")</script>
   <meta property="og:title" content="About Kinema">
-  <meta property="og:description" content="Kinema Labs LLC makes Kinema, an iPhone app that takes the admin out of coaching practice between lessons.">
+  <meta property="og:description" content="Kinema Labs LLC makes Kinema, which tennis coaches use to review students' practice between lessons and send them notes.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kinemalabs.tech/about.html">
   <meta property="og:image" content="https://kinemalabs.tech/assets/og.png">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Links marked data-app go to the app. Its address is set once, at the top of assets/site.js. -->
   <header class="site-header">
     <div class="nav-shell">
       <a class="brand" href="./" aria-label="Kinema home">
         <img src="assets/kinema-mark.svg" alt="" width="32" height="32">
         <span>Kinema</span>
       </a>
-      <nav class="site-nav" aria-label="Primary navigation"><a href="./">Home</a><a href="about.html" aria-current="page">About</a><a href="contact.html">Contact</a></nav>
+      <nav class="site-nav" aria-label="Primary navigation"><a href="./">Home</a><a href="about.html" aria-current="page">About</a><a href="contact.html">Help</a><a class="button button-small" href="https://kinema-analysis-api.onrender.com/login" data-app="/login">Sign in</a></nav>
     </div>
   </header>
 
@@ -33,30 +34,37 @@
 
     <section class="page-hero">
       <div class="page-hero-inner">
-        <p class="eyebrow">About</p>
         <h1>About Kinema Labs</h1>
-        <p class="lede">Kinema Labs LLC makes Kinema, an iPhone app tennis coaches use to review students' practice between lessons and send them notes.</p>
+        <p class="lede">Kinema Labs LLC makes Kinema, which tennis coaches use to review students' practice between lessons and send them notes.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="shell split-section">
-        <p class="eyebrow">Why we built it</p>
+        <h2>How practice review works today</h2>
         <div class="prose">
-          <h2>How practice review works today</h2>
           <p>Students record practice and send the videos by text or email. Coaches scrub through each video to find the swings worth talking about, type the same corrections for different students, and keep track of who practiced in their head.</p>
           <p>Kinema replaces that thread. It turns the coach's spoken comments into a written message for the student, and keeps every student's practice, notes and questions in one place.</p>
+          <p>Kinema does not coach. The coach decides what to say, and nothing reaches a student until the coach taps Send.</p>
         </div>
       </div>
     </section>
 
-    <section class="section" style="padding-top: 0">
+    <section class="section">
       <div class="shell">
+        <div class="section-intro">
+          <h2>Where it stands</h2>
+        </div>
         <div class="roadmap">
           <article class="roadmap-card current">
             <span class="tag">Now</span>
-            <h3>iPhone app</h3>
+            <h3>In a phone's browser</h3>
             <p>Practice clips, spoken feedback written up as one message, the student's view of every note, and student questions passed to the coach.</p>
+          </article>
+          <article class="roadmap-card">
+            <span class="tag">In review</span>
+            <h3>iPhone app</h3>
+            <p>Submitted to the App Store on October 14, 2026. It is in review and not yet available to download.</p>
           </article>
           <article class="roadmap-card">
             <span class="tag">Next</span>
@@ -69,19 +77,20 @@
             <p>Sports where a coach reviews repeated movements, such as golf and baseball, once tennis works well.</p>
           </article>
         </div>
+        <div class="button-row" style="margin-top: var(--s6)">
+          <a class="button button-primary" href="https://kinema-analysis-api.onrender.com/demo/" data-app="/demo/">Try the demo</a>
+          <a class="button" href="https://kinema-analysis-api.onrender.com/login" data-app="/login">Sign in</a>
+        </div>
       </div>
     </section>
 
     <section class="section">
       <div class="shell identity-panel">
-        <div>
-          <p class="eyebrow">Company</p>
-          <h2>Kinema Labs LLC</h2>
-        </div>
+        <h2>Kinema Labs LLC</h2>
         <dl class="identity-details">
-          <div><dt>Product</dt><dd>Kinema for iPhone</dd></div>
+          <div><dt>Product</dt><dd>Kinema, in a phone's browser. iPhone app in App Store review.</dd></div>
           <div><dt>Website</dt><dd><a href="https://kinemalabs.tech/">kinemalabs.tech</a></dd></div>
-          <div><dt>Contact</dt><dd><a href="mailto:alexlee@kinemalabs.tech">alexlee@kinemalabs.tech</a></dd></div>
+          <div><dt>Contact</dt><dd><a class="address" href="mailto:alexlee@kinemalabs.tech">alexlee@kinemalabs.tech</a></dd></div>
         </dl>
       </div>
     </section>
@@ -93,19 +102,18 @@
       <div class="footer-top">
         <div>
           <a class="brand" href="./"><img src="assets/kinema-mark.svg" alt="" width="32" height="32"><span>Kinema</span></a>
-          <p class="footer-tagline">An iPhone app for reviewing students' practice videos. Made by Kinema Labs LLC.</p>
+          <p class="footer-tagline">Practice video review for tennis coaches and their students. Made by Kinema Labs LLC.</p>
         </div>
         <nav class="footer-nav" aria-label="Footer navigation">
-          <a href="./">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="app.html">App terms &amp; privacy</a><a href="privacy.html">Website privacy</a>
+          <a href="./">Home</a><a href="about.html">About</a><a href="contact.html">Help</a><a href="https://kinema-analysis-api.onrender.com/demo/" data-app="/demo/">Demo</a><a href="https://kinema-analysis-api.onrender.com/login" data-app="/login">Sign in</a><a href="app.html">App terms &amp; privacy</a><a href="privacy.html">Website privacy</a>
         </nav>
       </div>
       <div class="footer-bottom">
         <span>&copy; 2026 Kinema Labs LLC. All rights reserved.</span>
-        <span>Sales &middot; Alex Lee, Head of Sales &middot; <a href="mailto:alexlee@kinemalabs.tech">alexlee@kinemalabs.tech</a></span>
+        <span>Sales &middot; Alex Lee, Head of Sales &middot; <a class="address" href="mailto:alexlee@kinemalabs.tech">alexlee@kinemalabs.tech</a></span>
       </div>
     </div>
   </footer>
   <script src="assets/site.js" defer></script>
-  <script src="assets/court.js" defer></script>
 </body>
 </html>

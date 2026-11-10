@@ -4,28 +4,29 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kinema app terms and privacy</title>
-  <meta name="description" content="Terms of use and the privacy notice for the Kinema iPhone app.">
-  <meta name="theme-color" content="#08110d">
+  <meta name="description" content="Terms of use and the privacy notice for the Kinema app.">
+  <meta name="theme-color" content="#0a0c0b">
   <link rel="canonical" href="https://kinemalabs.tech/app.html">
   <link rel="icon" href="assets/kinema-mark.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/site.css">
   <script>document.documentElement.classList.add("js")</script>
   <meta property="og:title" content="Kinema app terms and privacy">
-  <meta property="og:description" content="Terms of use and the privacy notice for the Kinema iPhone app.">
+  <meta property="og:description" content="Terms of use and the privacy notice for the Kinema app.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kinemalabs.tech/app.html">
   <meta property="og:image" content="https://kinemalabs.tech/assets/og.png">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Links marked data-app go to the app. Its address is set once, at the top of assets/site.js. -->
   <header class="site-header">
     <div class="nav-shell">
       <a class="brand" href="./" aria-label="Kinema home">
         <img src="assets/kinema-mark.svg" alt="" width="32" height="32">
         <span>Kinema</span>
       </a>
-      <nav class="site-nav" aria-label="Primary navigation"><a href="./">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+      <nav class="site-nav" aria-label="Primary navigation"><a href="./">Home</a><a href="about.html">About</a><a href="contact.html">Help</a><a class="button button-small" href="https://kinema-analysis-api.onrender.com/login" data-app="/login">Sign in</a></nav>
     </div>
   </header>
 
@@ -33,8 +34,7 @@
 
     <section class="page-hero">
       <div class="page-hero-inner">
-        <p class="eyebrow">Kinema app</p>
-        <h1>App terms &amp; privacy.</h1>
+        <h1>App terms &amp; privacy</h1>
         <p class="lede">The terms and privacy notice the Kinema app shows once at setup, published here so anyone can read them first.</p>
       </div>
     </section>
@@ -92,19 +92,18 @@
       <div class="footer-top">
         <div>
           <a class="brand" href="./"><img src="assets/kinema-mark.svg" alt="" width="32" height="32"><span>Kinema</span></a>
-          <p class="footer-tagline">An iPhone app for reviewing students' practice videos. Made by Kinema Labs LLC.</p>
+          <p class="footer-tagline">Practice video review for tennis coaches and their students. Made by Kinema Labs LLC.</p>
         </div>
         <nav class="footer-nav" aria-label="Footer navigation">
-          <a href="./">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="app.html">App terms &amp; privacy</a><a href="privacy.html">Website privacy</a>
+          <a href="./">Home</a><a href="about.html">About</a><a href="contact.html">Help</a><a href="https://kinema-analysis-api.onrender.com/demo/" data-app="/demo/">Demo</a><a href="https://kinema-analysis-api.onrender.com/login" data-app="/login">Sign in</a><a href="app.html">App terms &amp; privacy</a><a href="privacy.html">Website privacy</a>
         </nav>
       </div>
       <div class="footer-bottom">
         <span>&copy; 2026 Kinema Labs LLC. All rights reserved.</span>
-        <span>Sales &middot; Alex Lee, Head of Sales &middot; <a href="mailto:alexlee@kinemalabs.tech">alexlee@kinemalabs.tech</a></span>
+        <span>Sales &middot; Alex Lee, Head of Sales &middot; <a class="address" href="mailto:alexlee@kinemalabs.tech">alexlee@kinemalabs.tech</a></span>
       </div>
     </div>
   </footer>
   <script src="assets/site.js" defer></script>
-  <script src="assets/court.js" defer></script>
 </body>
 </html>

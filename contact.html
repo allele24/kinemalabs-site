@@ -3,29 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact Kinema</title>
-  <meta name="description" content="Email Kinema Labs about pricing, the app, or privacy.">
-  <meta name="theme-color" content="#08110d">
+  <title>Kinema help</title>
+  <meta name="description" content="How to start a group, join with an invite code and record a set in Kinema, and where to email for help.">
+  <meta name="theme-color" content="#0a0c0b">
   <link rel="canonical" href="https://kinemalabs.tech/contact.html">
   <link rel="icon" href="assets/kinema-mark.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/site.css">
   <script>document.documentElement.classList.add("js")</script>
-  <meta property="og:title" content="Contact Kinema">
-  <meta property="og:description" content="Email Kinema Labs about pricing, the app, or privacy.">
+  <meta property="og:title" content="Kinema help">
+  <meta property="og:description" content="How to start a group, join with an invite code and record a set in Kinema, and where to email for help.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kinemalabs.tech/contact.html">
   <meta property="og:image" content="https://kinemalabs.tech/assets/og.png">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+  <!-- Links marked data-app go to the app. Its address is set once, at the top of assets/site.js. -->
   <header class="site-header">
     <div class="nav-shell">
       <a class="brand" href="./" aria-label="Kinema home">
         <img src="assets/kinema-mark.svg" alt="" width="32" height="32">
         <span>Kinema</span>
       </a>
-      <nav class="site-nav" aria-label="Primary navigation"><a href="./">Home</a><a href="about.html">About</a><a href="contact.html" aria-current="page">Contact</a></nav>
+      <nav class="site-nav" aria-label="Primary navigation"><a href="./">Home</a><a href="about.html">About</a><a href="contact.html" aria-current="page">Help</a><a class="button button-small" href="https://kinema-analysis-api.onrender.com/login" data-app="/login">Sign in</a></nav>
     </div>
   </header>
 
@@ -33,38 +34,68 @@
 
     <section class="page-hero">
       <div class="page-hero-inner">
-        <p class="eyebrow">Contact</p>
-        <h1>Contact</h1>
-        <p class="lede">Email <a href="mailto:alexlee@kinemalabs.tech">alexlee@kinemalabs.tech</a> about pricing, app problems or privacy requests.</p>
+        <h1>Help</h1>
+        <p class="lede">How to start, join and record. For anything else, email <a class="address" href="mailto:alexlee@kinemalabs.tech">alexlee@kinemalabs.tech</a>.</p>
       </div>
     </section>
 
     <section class="section">
-      <div class="shell contact-grid">
-        <div class="contact-card">
-          <p class="eyebrow">Sales</p>
-          <h2>Plans and trials</h2>
-          <p>Coach: $29 a month for one coach, unlimited students. Academy: $79 a month for up to 3 coaches. Both start with 14 days free.</p>
-          <p>Write to Alex Lee, Head of Sales, with your name, where you coach and how your students send you practice today, and you'll get set up with a trial.</p>
-          <div class="button-row" style="margin-top:1.25rem"><a class="button button-primary" href="mailto:alexlee@kinemalabs.tech?subject=Kinema%20pricing%20for%20my%20students">Email Alex <span class="arrow" aria-hidden="true">&#8599;</span></a></div>
-          <a class="contact-link" href="mailto:alexlee@kinemalabs.tech?subject=Kinema%20pricing%20for%20my%20students">alexlee@kinemalabs.tech</a>
-          <p class="notice">Don't send passwords, health records or other sensitive information by email.</p>
-        </div>
+      <div class="shell card-grid">
 
-        <div class="contact-aside">
-          <section>
-            <h3>Students and parents</h3>
-            <p>Ask your coach for their Kinema invite code. If you're already using the app and something isn't working, email us with your iPhone model and what happened.</p>
-          </section>
-          <section>
-            <h3>Privacy requests</h3>
-            <p>Use the subject &ldquo;Privacy&rdquo;. See the <a href="app.html">app terms &amp; privacy</a> and the <a href="privacy.html">website privacy policy</a>.</p>
-          </section>
-          <section>
-            <h3>Company</h3>
-            <p>This is the official website of <strong>Kinema Labs LLC</strong>, which controls this domain and the address above.</p>
-          </section>
-        </div>
+        <article class="card card-wide">
+          <h2>Coaches: start a group</h2>
+          <p>Sign in, open Practice and start a group as coach. Then pick a plan. Coach is $29 a month for one coach with unlimited students. Academy is $79 a month for up to 3 coaches with unlimited students.</p>
+          <p>Both plans start with 14 days free, then bill monthly. You add a card on Stripe's page when you start and can cancel anytime.</p>
+          <div class="button-row">
+            <a class="button button-primary" href="https://kinema-analysis-api.onrender.com/login" data-app="/login">Start 14 days free</a>
+            <a class="button" href="https://kinema-analysis-api.onrender.com/demo/" data-app="/demo/">Try the demo</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>Coaches: invite students</h2>
+          <p>Kinema gives you an invite code to send to one student. Each code works once and expires in 7 days, so every student gets their own.</p>
+        </article>
+
+        <article class="card">
+          <h2>Students: join your coach's group</h2>
+          <p>Ask your coach for an invite code. Sign in, open Practice and enter the code. You agree to the terms once when you join.</p>
+          <div class="button-row">
+            <a class="button" href="https://kinema-analysis-api.onrender.com/login" data-app="/login">Sign in</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>Parents</h2>
+          <p>If the student is under 18, a parent or legal guardian reads the agreement and signs for them. If the student is under 13, Kinema also emails the parent a link, and nothing the student records is sent until the parent confirms.</p>
+        </article>
+
+        <article class="card">
+          <h2>Recording a set</h2>
+          <p>Put your phone on a tripod behind you, turned sideways, with your whole body in the picture. Record your set and it goes to your coach.</p>
+        </article>
+
+        <article class="card">
+          <h2>Phones it works on</h2>
+          <p>Kinema works in a phone's browser today. The iPhone app was submitted to the App Store on October 14, 2026 and is in review.</p>
+        </article>
+
+        <article class="card" id="email">
+          <h2>Something isn't working</h2>
+          <p>Email <a class="address" href="mailto:alexlee@kinemalabs.tech?subject=Kinema%20help">alexlee@kinemalabs.tech</a> with the phone you use, the browser, and what happened.</p>
+          <p class="notice">Don't send passwords, health records or other sensitive information by email.</p>
+        </article>
+
+        <article class="card">
+          <h2>Privacy requests</h2>
+          <p>Email <a class="address" href="mailto:alexlee@kinemalabs.tech?subject=Privacy">alexlee@kinemalabs.tech</a> with the subject &ldquo;Privacy&rdquo;. See the <a href="app.html">app terms &amp; privacy</a> and the <a href="privacy.html">website privacy policy</a>.</p>
+        </article>
+
+        <article class="card">
+          <h2>Company</h2>
+          <p>This is the official website of Kinema Labs LLC, which controls this domain and the address above.</p>
+        </article>
+
       </div>
     </section>
 
@@ -75,19 +106,18 @@
       <div class="footer-top">
         <div>
           <a class="brand" href="./"><img src="assets/kinema-mark.svg" alt="" width="32" height="32"><span>Kinema</span></a>
-          <p class="footer-tagline">An iPhone app for reviewing students' practice videos. Made by Kinema Labs LLC.</p>
+          <p class="footer-tagline">Practice video review for tennis coaches and their students. Made by Kinema Labs LLC.</p>
         </div>
         <nav class="footer-nav" aria-label="Footer navigation">
-          <a href="./">Home</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="app.html">App terms &amp; privacy</a><a href="privacy.html">Website privacy</a>
+          <a href="./">Home</a><a href="about.html">About</a><a href="contact.html">Help</a><a href="https://kinema-analysis-api.onrender.com/demo/" data-app="/demo/">Demo</a><a href="https://kinema-analysis-api.onrender.com/login" data-app="/login">Sign in</a><a href="app.html">App terms &amp; privacy</a><a href="privacy.html">Website privacy</a>
         </nav>
       </div>
       <div class="footer-bottom">
         <span>&copy; 2026 Kinema Labs LLC. All rights reserved.</span>
-        <span>Sales &middot; Alex Lee, Head of Sales &middot; <a href="mailto:alexlee@kinemalabs.tech">alexlee@kinemalabs.tech</a></span>
+        <span>Sales &middot; Alex Lee, Head of Sales &middot; <a class="address" href="mailto:alexlee@kinemalabs.tech">alexlee@kinemalabs.tech</a></span>
       </div>
     </div>
   </footer>
   <script src="assets/site.js" defer></script>
-  <script src="assets/court.js" defer></script>
 </body>
 </html>
