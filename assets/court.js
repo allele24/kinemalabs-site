@@ -5,7 +5,7 @@
   const canvas = document.querySelector("[data-court]");
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
-  const LIME = "#c8ff3d", INK = "#eef1ea", BG = "#0a0b0a";
+  const LIME = "#c0ff38", INK = "#eef1ea", BG = "#0a0b0a";
   const W = 600, H = 480, PERIOD = 16;
   const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const MONO = '"Geist Mono", ui-monospace, monospace';
@@ -14,7 +14,7 @@
   const span = (t, a, b) => clamp((t - a) / (b - a));
   const out3 = (p) => 1 - (1 - p) ** 3;
   const inOut = (p) => (p < 0.5 ? 4 * p ** 3 : 1 - (-2 * p + 2) ** 3 / 2);
-  const lime = (a) => `rgba(200,255,61,${a})`;
+  const lime = (a) => `rgba(192,255,56,${a})`;
 
   const S = 13;
   const iso = (x, y, z = 0) => ({ x: 384 + (x - y) * S, y: 150 + (x + y) * S * 0.5 - z });
