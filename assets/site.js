@@ -1,9 +1,9 @@
 // Kinema site: where the app lives, the rotating word in the headline, the worked voice-to-note example, and
 // sections easing in.
 (() => {
-  // The app's address. Links marked data-app="/demo/" or data-app="/login" get this in front. When the app moves to
-  // its own address, change this line to "https://app.kinemalabs.tech"; the links' own href is the no-script fallback.
-  const APP = "https://kinema-analysis-api.onrender.com";
+  // The app's address. Links marked data-app="/demo/" or data-app="/login" get this in front; the links' own href is
+  // the no-script fallback, so change both together.
+  const APP = "https://app.kinemalabs.tech";
   document.querySelectorAll("a[data-app]").forEach((a) => { a.href = APP + a.dataset.app; });
 
   const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
