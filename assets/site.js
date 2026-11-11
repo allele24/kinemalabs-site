@@ -36,15 +36,6 @@
     }, 2800);
   }
 
-  // Sections ease in once as they reach the screen.
-  document.documentElement.classList.add("js");
-  const seen = new IntersectionObserver((entries) => {
-    entries.forEach((e) => {
-      if (e.isIntersecting) { e.target.classList.add("on"); seen.unobserve(e.target); }
-    });
-  }, { rootMargin: "0px 0px -8% 0px" });
-  document.querySelectorAll("[data-reveal]").forEach((el) => seen.observe(el));
-
   // The demo video plays muted while it's on screen, and pauses when it's not.
   const vid = document.querySelector("video[data-autoplay]");
   if (vid && !still) new IntersectionObserver(([e]) => { if (e.isIntersecting) vid.play().catch(() => {}); else vid.pause(); }, { threshold: 0.5 }).observe(vid);
